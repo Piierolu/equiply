@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: equiply-backend
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/equiply}
+    username: ${DATABASE_USERNAME:equiply}
+    password: ${DATABASE_PASSWORD:equiply_local}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${OIDC_ISSUER_URI:http://localhost:8180/realms/equiply}
+          jwk-set-uri: ${OIDC_JWK_SET_URI:http://localhost:8180/realms/equiply/protocol/openid-connect/certs}
+
+server:
+  error:
+    include-message: always
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+equiply:
+  cors:
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3000}
