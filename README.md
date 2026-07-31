@@ -1,6 +1,24 @@
 # Equiply
 
+[![CI](https://github.com/Piierolu/equiply/actions/workflows/ci.yml/badge.svg)](https://github.com/Piierolu/equiply/actions/workflows/ci.yml)
+[![Deploy public demo](https://github.com/Piierolu/equiply/actions/workflows/pages.yml/badge.svg)](https://github.com/Piierolu/equiply/actions/workflows/pages.yml)
+[![Live demo](https://img.shields.io/badge/live_demo-open-acef3f?style=flat)](https://piierolu.github.io/equiply/)
+
 Equiply is a multi-tenant SaaS for small event-equipment rental companies. It brings inventory, reservations, dispatches, returns, invoicing, and subscription management into one workspace.
+
+**[Explore the public demo](https://piierolu.github.io/equiply/)**
+
+## Product preview
+
+![Equiply landing page](docs/screenshots/landing.png)
+
+![Equiply operations dashboard](docs/screenshots/dashboard.png)
+
+## Public demo
+
+The GitHub Pages deployment runs as an authenticated owner demo without external services. Inventory changes and the simulated subscription are stored in the browser with `localStorage`, so visitors can exercise the interface without sharing data or credentials.
+
+The complete local stack uses the same frontend with real OIDC authentication through Keycloak, a Spring Boot API, and tenant-isolated PostgreSQL persistence. Billing remains intentionally simulated in both environments and never processes money.
 
 ## Problem
 
